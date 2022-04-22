@@ -18,6 +18,9 @@
 | nickname           | string | null: false               |
 | email              | string | unique: true, null: false |
 | encrypted_password | string | null: false               |
+| weight             | integer| null: false               |
+| hight              | integer| null: false               |
+| age                | integer| null: false               |
 
 ### Association
 
@@ -33,7 +36,7 @@
 | abs_workout_id             | integer   | null: false       | active_hash | 腹トレメニュー
 | back_workout_id            | integer   | null: false       | active_hash | 背トレメニュー
 | shoulder_workout_id        | integer   | null: false       | active_hash | 肩トレメニュー
-| weight                     | integer   | null: false       |             | 負荷
+| w_weight                   | integer   | null: false       |             | 負荷
 | reps                       | integer   | null: false       |             | 回数
 | sets                       | integer   | null: false       |             | セット数
 | walk_spd_id                | integer   | null: false       | active_hash | 徒歩速度
