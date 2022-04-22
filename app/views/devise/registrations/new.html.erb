@@ -1,2 +1,44 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="f-wrap">
+    <div class="f-header">
+      <h1 class="f-header-text">
+        会員情報入力
+      </h1>
+    </div>
+    <div class="f-group">
+      <div class="f-text-wrap">
+        <label class="f-text">ニックネーム</label>
+        <span class="must">必須</span>
+      </div>
+      <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例）田中太郎", maxlength: "10" %>
+    </div>
+
+    <div class="f-group">
+      <div class="f-text-wrap">
+        <label class="f-text">メールアドレス</label>
+        <span class="must">必須</span>
+      </div>
+      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+    </div>
+
+    <div class="f-group">
+      <div class="f-text-wrap">
+        <label class="f-text">パスワード</label>
+        <span class="must">必須</span>
+      </div>
+      <%= f.password_field :password, class:"input-default", id:"password", placeholder:"６文字以上の半角数字" %>
+    </div>
+
+    <div class="f-group">
+      <div class="f-text-wrap">
+        <label class="f-text">パスワード（確認）</label>
+        <span class="must">必須</span>
+      </div>
+      <%= f.password_field :password, class:"input-default", id:"password", placeholder:"同じパスワードを入力してください" %>
+    </div>
+
+      <div class= "login-btn">
+        <%= f.submit "ログイン", class:"login-red-btn" %>
+      </div>
+  </div>
 <% end %>
