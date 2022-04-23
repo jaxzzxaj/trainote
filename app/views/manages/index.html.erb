@@ -1,7 +1,21 @@
 <body>
   <header>
-  <!--　ログイン/新規登録できたとき -->
-  <!-- 未ログインのとき-->
+  <% if user_signed_in?%>
+    <!--　ログイン/新規登録できたとき -->
+    <div class="header-signed">
+      <div class="header-list">
+        <%= link_to "Trainote", root_path, class:"devise"%>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout"%>
+      </div>
+    </div>
+    <!-- 未ログインのとき-->
+  <% else %>
+    <div class="unsigned">
+      <div class="header-list">
+        <%= link_to "ログイン", new_user_session_path, class:"login" %>
+        <%= link_to "新規登録", new_user_registration_path, class:"sign-up" %>
+      </div>
+    </div>
   </header>
   <main>
     <div class="introduce">
@@ -9,4 +23,5 @@
       <p class="greeting">This is a place to record your workout and diet.</p>
     </div>
   </main>
+  <% end %>
 </body>
