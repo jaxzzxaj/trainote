@@ -9,13 +9,14 @@ class User < ApplicationRecord
     validates :email
   end
 
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   #新規登録時のパスワードの設定
   with_options on: :create do
-    validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze, message:"は半角英数を両方含む必要があります"}
+    validates :password, format: {with: VALID_PASSWORD_REGEX, message:"は半角英数を両方含む必要があります"}
   end
 
   #アカウント編集のパスワードの設定
   with_options on: :update do
-    validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze, message:"は半角英数を両方含む必要があります", allow_blank: true}
+    validates :password, format: {with: VALID_PASSWORD_REGEX, message:"は半角英数を両方含む必要があります", allow_blank: true}
   end
 end
