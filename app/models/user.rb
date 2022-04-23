@@ -16,6 +16,6 @@ class User < ApplicationRecord
 
   #アカウント編集のパスワードの設定
   with_options on: :update do
-    validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze, message:"は半角英数を両方含む必要があります"}
+    validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze, message:"は半角英数を両方含む必要があります", allow_blank: true}
   end
 end
