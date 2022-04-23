@@ -10,12 +10,14 @@
     </div>
     <!-- 未ログインのとき-->
   <% else %>
+    <!--（追加）ログインと新規機能をページ遷移なしで処理させたい -->
     <div class="unsigned">
       <div class="header-list">
         <%= link_to "ログイン", new_user_session_path, class:"login" %>
         <%= link_to "新規登録", new_user_registration_path, class:"sign-up" %>
       </div>
     </div>
+    <!--（追加）ログインと新規機能をページ遷移なしで処理させたい -->
   </header>
   <main>
     <div class="introduce">
